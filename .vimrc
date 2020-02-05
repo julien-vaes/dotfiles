@@ -51,3 +51,5 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Other
 set foldmethod=indent
+
+Hello
