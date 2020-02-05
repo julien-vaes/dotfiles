@@ -1,3 +1,4 @@
+" Enable copy paste outside vim 
 set clipboard=unnamed
 autocmd InsertLeave * write
 
@@ -13,8 +14,12 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/ctrlp.vim'
 Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'lervag/vimtex'
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'frazrepo/vim-rainbow'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do' : ':UpdateRemotePlugins' }
@@ -48,6 +53,9 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Rainbow: enables the coloration of the parantheses
+let g:rainbow_active = 1
 
 " Other
 set foldmethod=indent
