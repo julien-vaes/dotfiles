@@ -1,0 +1,215 @@
+global !p
+
+
+# Function to transorm camel style to snake style
+_underscorer1 = re.compile(r'(.)([A-Z][a-z]+)')
+_underscorer2 = re.compile('([a-z0-9])([A-Z])')
+
+def camelToSnake(s):
+    """ 
+    Is it ironic that this function is written in camel case, yet it
+    converts to snake case? hmm..
+    """
+    subbed = _underscorer1.sub(r'\1_\2', s)
+    return _underscorer2.sub(r'\1_\2', subbed).lower()
+
+# General functions
+
+# returns the file name
+def get_file_name(snip):
+	return snip.fn
+
+# splits a string with , and returns a table
+def get_args(arglist):
+	args = arglist.split(',')
+	for i in range(0,len(args)):
+		args[i] = args[i].replace(" ", "")
+	return args
+
+
+# Function to describe the a function with a snippet
+def write_function_start_doc(t,snip):
+	snip += '"""'
+	snip += "    %s(%s)" % (t[1],t[2])
+	snip.rv += '\n' + snip.mkline('', indent='')
+
+def function_argument_format(arg):
+	return "* `%s`: TODO." % arg
+
+def write_function_arguments_doc(t,snip):
+	args = get_args(t[2])
+	if args:
+		# Check if several arguments in ordre to choose to put a "s" or not at the end of "Argument"
+		myS = ""
+		if len(args) > 1:
+			myS = "s"
+		# Argument definition
+		snip += "### Argument%s" % myS
+		for arg in args:
+			snip += function_argument_format(arg)
+	snip += '"""'
+
+# Function to describe the a structure with a snippet
+
+def write_structure_start_doc(t, snip):
+	snip += "# A structure containing all details for a %s." % t[1].lower()
+
+def strucure_attribute_format(attribute):
+	return "\t%s \t # TODO." % attribute
+
+def write_structure_attributes_doc(t, snip):
+	attributes = get_args(t[2])
+	if not attributes:
+		return
+	else:
+		for attr in attributes:
+			snip += strucure_attribute_format(attr)
+
+## Functions to write the get function associated with a structure
+def write_get_function(aStructureName, aAttribute, snip):
+	myAttribute = aAttribute.split("::")
+	myAttributeType = ""
+	if len(myAttribute) > 1:
+		myAttributeType = myAttribute[1]
+	myAttributeBasic = myAttribute[0]
+	myAttribute = myAttributeBasic.split("the")
+	myAttribute = myAttribute[-1]
+	myAttributeSnake = camelToSnake(myAttribute)
+	myName = "get_%s" % myAttributeSnake
+	myArgument = "a%s::%s" % (aStructureName,aStructureName)
+	t = ["", myName, myArgument]
+
+	write_function_start_doc(t,snip)
+	snip += "returns the attribute `%s` of the structure `a%s`.\n" % (myAttributeBasic, aStructureName)
+	write_function_arguments_doc(t,snip)
+
+	snip += "function %s(%s)" % (myName,myArgument)
+	snip += "\treturn a%s.%s\nend\n" % (aStructureName,myAttributeBasic)
+	
+def write_get_functions(t, snip):
+	myStructureName = t[1]
+	args = get_args(t[2])
+	if not args:
+		return
+	else:
+		# Introductory message
+		myS = ""
+		if len(args) > 1:
+			myS = "s"
+		snip += "## STRUCTURE %s: get function%s" % (t[1], myS)
+		# Function definition
+		for attribute in args:
+			write_get_function(myStructureName, attribute, snip)
+
+## Functions to write the set function associated with a structure
+def write_set_function(aStructureName, aAttribute, snip):
+	myAttribute = aAttribute.split("::")
+	myAttributeType = ""
+	if len(myAttribute) > 1:
+		myAttributeType = myAttribute[1]
+	myAttributeBasic = myAttribute[0]
+	myAttribute = myAttributeBasic.split("the")
+	myAttribute = myAttribute[-1]
+	myAttributeSnake = camelToSnake(myAttribute)
+	myName = "set_%s!" % myAttributeSnake
+	myArguments = "a%s::%s, aNew%s::%s" % (aStructureName, aStructureName, myAttribute, myAttributeType)
+	t = ["", myName, myArguments]
+
+	write_function_start_doc(t,snip)
+	snip += "assigns to the attribute `%s` of the structure `a%s` the value `%s`.\n" % (myAttributeBasic, aStructureName, myAttributeBasic)
+	write_function_arguments_doc(t,snip)
+
+	snip += "function %s(%s)" % (myName,myArguments)
+	snip += "\ta%s.%s = aNew%s\nend\n" % (aStructureName, myAttributeBasic, myAttribute)
+
+def write_set_functions(t, snip):
+	myStructureName = t[1]
+	args = get_args(t[2])
+	if not args:
+		return
+	else:
+		# Introductory message
+		myS = ""
+		if len(args) > 1:
+			myS = "s"
+		snip += "## STRUCTURE %s: set function%s" % (t[1], myS)
+		# Function definition
+		for attribute in args:
+			write_set_function(myStructureName, attribute, snip)
+endglobal
+
+
+# Snippets definition
+
+# the comments block at the start of each document.
+snippet sc "Document introductory comments" b
+# NAME: `!p snip.rv = get_file_name(snip)`
+# AUTHOR: Julien Vaes
+# DATE: `date +"%B %d, %Y"`
+# DESCRIPTION: ${1:TODO: Description of the file content}
+
+$0
+endsnippet
+
+snippet fun "Function with documentation" b
+`!p write_function_start_doc(t,snip) `
+${3:TODO function description.}
+`!p write_function_arguments_doc(t,snip) `
+function ${1:function_name}(`!p
+if snip.indent:
+	snip.rv = 'self' + (", " if len(t[2]) else "")`${2:Argument1, Argument2, ...})
+	${5:${VISUAL:nothing}}
+end
+
+
+endsnippet
+
+snippet stru "Structure with documentation" b
+### START: STRUCTURE $1 ###
+`!p write_structure_start_doc(t, snip) `
+# The attribute in the structure: `!p
+if snip.indent:
+	snip.rv = 'self' + (", " if len(t[2]) else "")`${2:Attribute1, Attribute2, ...}
+struct ${1:StructureName} `!p 
+write_structure_attributes_doc(t, snip) `
+end
+
+### END: STRUCTURE $1 ###
+
+
+endsnippet
+
+
+snippet strug "Structure with documentation and get functions" b
+### START: STRUCTURE $1 ###
+
+`!p write_structure_start_doc(t, snip) `
+# The attributes in the structure: `!p
+if snip.indent:
+	snip.rv = 'self' + (", " if len(t[2]) else "")`${2:Attribute1, Attribute2, ...}
+struct ${1:StructureName} `!p 
+write_structure_attributes_doc(t, snip) `
+end
+
+`!p write_get_functions(t, snip) `
+### END: STRUCTURE $1 ###
+
+
+endsnippet
+
+snippet strugs "Structure with documentation and (get,set) functions" b
+### START: STRUCTURE $1 ###
+`!p write_structure_start_doc(t, snip) `
+# The attributes in the structure: `!p
+if snip.indent:
+	snip.rv = 'self' + (", " if len(t[2]) else "")`${2:Attribute1, Attribute2, ...}
+mutable struct ${1:StructureName} `!p 
+write_structure_attributes_doc(t, snip) `
+end
+
+`!p write_get_functions(t, snip) `
+`!p write_set_functions(t, snip) `
+### END: STRUCTURE $1 ###
+
+
+endsnippet

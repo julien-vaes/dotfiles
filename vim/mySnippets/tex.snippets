@@ -1,0 +1,596 @@
+##########
+## Todo ##
+##########
+
+snippet todo "[1,...,.]" i
+\todo{${1}}${0}
+endsnippet
+
+####################
+## Math operators ##
+####################
+
+# Transpose
+snippet tr "^T" i
+^{\T}${0}
+endsnippet
+
+# Dot product
+snippet dotp "<.,.>" w
+\dotp{${1}}{${2}}${0}
+endsnippet
+
+# Exponent
+snippet ex "^{.}" i
+^{${1}}${0}
+endsnippet
+
+# Sign
+snippet sign "sign()" i
+\sign{${1}}${0}
+endsnippet
+
+# diag
+snippet diag "diag(.)" w
+\diag{${1}}${0}
+endsnippet
+
+# Diag
+snippet cdiag "Diag(.)" w
+\Diag{${1}}${0}
+endsnippet
+
+# in R
+snippet inr "in R^{}" w
+\in \R^{${1}}${0}
+endsnippet
+
+# Multiline equation
+snippet mult "multline equation" b
+\begin{multline}
+${1}
+\end{multline}
+${0}
+endsnippet
+
+# Split in equation
+snippet split "split in equation" b
+\begin{split}
+${1}
+\end{split}
+${0}
+endsnippet
+
+snippet mdef "\mdef" w
+\mdef${0}
+endsnippet
+
+snippet rmdef "\rmdef" w
+\rmdef${0}
+endsnippet
+
+############
+## Vector ##
+############
+
+snippet mvec "[.,...,.]" w
+\mvec{${1}}{${2}}${0}
+endsnippet
+
+snippet mveco "[1,...,.]" w
+\mveco{${1}}${0}
+endsnippet
+
+snippet bmvec "[.]" w
+\bmvec{${1}}${0}
+endsnippet
+
+##########
+## Sets ##
+##########
+
+# No parentheses set
+snippet bset ".,...,." w
+\bset{${1}}{${2}}${0}
+endsnippet
+
+# No parentheses set starting at 1
+snippet bseto ".,...,." w
+\bseto{${1}}${0}
+endsnippet
+
+# Discrete set
+snippet dset "{.,...,.}" w
+\dset{${1}}{${2}}${0}
+endsnippet
+
+snippet dseto "{1,...,.}" w
+\dseto{${1}}${0}
+endsnippet
+
+# Continuous set
+snippet cset "[.,.]" w
+\cset{${1}}{${2}}${0}
+endsnippet
+
+# Set condition
+snippet setc "{.|.}" w
+\setc{${1}}{${2}}${0}
+endsnippet
+
+###########
+## Norms ##
+###########
+
+# Norm
+snippet norm "||.||_." i
+\norm{${1:norm}}{${2}}${0}
+endsnippet
+
+# Abs
+snippet abs "|.|" i
+\abs{${1}}${0}
+endsnippet
+
+#################################
+## Probability and expectation ##
+#################################
+
+# Probability
+snippet proba "P[.]" i
+\proba{${1}}${0}
+endsnippet
+
+# Probability with distribution
+snippet probadist "P_.[.]" i
+\probadist{${1:dist}}{${2}}${0}
+endsnippet
+
+# Conditional probability
+snippet cproba "P[.|.]" i
+\cproba{${1}}{${2:condition}}${0}
+endsnippet
+
+# Conditional probability with distribution
+snippet cprobadist "P_.[.|.]" i
+\cprobadist{${1:dist}}{${2}}{${3:condition}}${0}
+endsnippet
+
+# Expectation
+snippet expe "E[.]" w
+\expe{${1}}${0}
+endsnippet
+
+# Expectation
+snippet expem "E^.[.]" w
+\expem{${1:measure}}{${2}}${0}
+endsnippet
+
+# Conditional expectation
+snippet cexpe "E[.|.]" w
+\cexpe{${1}}{${2:condition}}${0}
+endsnippet
+
+# VaR
+snippet varr "VaR[.]" w
+\varr{${1:quantile}}{${2}}${0}
+endsnippet
+
+# Conditional VaR
+snippet cvarr "VaR[.|.]" w
+\cvarr{${1:quantile}}{${2}}{${3:condition}}${0}
+endsnippet
+
+# CVaR
+snippet cvar "CVaR[.]" w
+\cvar{${1:quantile}}{${2}}${0}
+endsnippet
+
+# Conditional CVaR
+snippet ccvar "CVaR[.|.]" w
+\ccvar{${1:quantile}}{${2}}{${3:condition}}${0}
+endsnippet
+
+# Variance
+snippet vari "V[.]" w
+\vari{${1}}${0}
+endsnippet
+
+# Conditional variance
+snippet cvari "V[.|.]" w
+\cvari{${1}}{${2:condition}}${0}
+endsnippet
+
+#################
+## Parentheses ##
+#################
+
+# ()
+snippet pa "(.)" i
+\pa{${1}}${0}
+endsnippet
+
+# []
+snippet pac "[.]" i
+\pac{${1}}${0}
+endsnippet
+
+# {}
+snippet pab "{.}" i
+\pab{${1}}${0}
+endsnippet
+
+###########
+## Fonts ##
+###########
+
+snippet mb "\mathbf{.}" i
+\mathbf{${1}}${0}
+endsnippet
+
+snippet mc "\mathcal{}" i
+\mathcal{${1}}${0}
+endsnippet
+
+snippet mbb "\mathbb{}" i
+\mathbb{${1}}${0}
+endsnippet
+
+snippet matb "\matb{.}" i
+\matb{${1}}${0}
+endsnippet
+
+snippet mset "\mset{.}" i
+\mset{${1}}${0}
+endsnippet
+
+####################
+## Math operators ##
+####################
+
+snippet over "\overset{.}{.}" w
+\overset{${1:over}}{${2:normal}}${0}
+endsnippet
+
+snippet under "\underset{.}{.}" w
+\underset{${1:under}}{${2:normal}}${0}
+endsnippet
+
+snippet ti "\tilde{.}" w
+\tilde{${1}}${0}
+endsnippet
+
+snippet wti "\widetilde{.}" w
+\tilde{${1}}${0}
+endsnippet
+
+snippet dot "\dot{.}" w
+\dot{${1}}${0}
+endsnippet
+
+snippet ddot "\ddot{.}" w
+\ddot{${1}}${0}
+endsnippet
+
+snippet bar "\bar{.}" w
+\bar{${1}}${0}
+endsnippet
+
+snippet wbar "\widebar{.}" w
+\widebar{${1}}${0}
+endsnippet
+
+##########################
+## Theorem, lemma, etc. ##
+##########################
+
+snippet prop "proposition" b
+\begin{proposition}[$1]
+$2
+\end{proposition}
+$0
+endsnippet
+
+snippet propl "proposition labeled" b
+\begin{proposition}[$1]
+\label{prop:${2:$1}}
+$3
+\end{proposition}
+$0
+endsnippet
+
+snippet theo "theorem" b
+\begin{theorem}[$1]
+$2
+\end{theorem}
+$0
+endsnippet
+
+snippet theol "theorem labeled" b
+\begin{theorem}[$1]
+\label{theorem:${2:$1}}
+$3
+\end{theorem}
+$0
+endsnippet
+
+snippet cor "corollary" b
+\begin{corollary}[$1]
+$2
+\end{corollary}
+$0
+endsnippet
+
+snippet corl "corollary labeled" b
+\begin{corollary}[$1]
+\label{corollary:${2:$1}}
+$3
+\end{corollary}
+$0
+endsnippet
+
+snippet rem "remark" b
+\begin{remark}[$1]
+$2
+\end{remark}
+$0
+endsnippet
+
+snippet reml "remark labeled" b
+\begin{remark}[$1]
+\label{remark:${2:$1}}
+$3
+\end{remark}
+$0
+endsnippet
+
+snippet lem "lemma" b
+\begin{lemma}[$1]
+$2
+\end{lemma}
+$0
+endsnippet
+
+snippet leml "lemma labeled" b
+\begin{lemma}[$1]
+\label{lemma:${2:$1}}
+$3
+\end{lemma}
+$0
+endsnippet
+
+snippet proof "proof" b
+\begin{proof}
+$1
+\end{proof}
+$0
+endsnippet
+
+snippet def "definition" b
+\begin{definition}
+$1
+\end{definition}
+$0
+endsnippet
+
+snippet defl "definition labeled" b
+\begin{definition}[$1]
+\label{def:${2:$1}}
+$3
+\end{definition}
+$0
+endsnippet
+
+##########################
+## Optimisation problem ##
+##########################
+
+snippet oprob "min . st ." w
+\begin{mini!}|l|[2]
+	{${2:variables}}
+	{${3:objective_function} \label{eq:oprob_obj_fun_$1}}
+	{\label{eq:oprob_${1:label}}}
+	{${4:result}}
+	\addconstraint{${5:left_constr}}{${6:right_constr}}
+\end{mini!}
+\vspace{-5mm}
+
+\noindent ${0}
+endsnippet
+
+############################
+## Reference and citation ##
+############################
+
+snippet coprob "Optimization Problem (.)" w
+Optimisation Problem~\eqref{eq:${1:label}}$0
+endsnippet
+
+snippet citet "\citet{.}" w
+\citet{${1}}$0
+endsnippet
+
+snippet citep "\citep{.}" w
+\citep{${1}}$0
+endsnippet
+
+snippet cref "\cref{.}" w
+\cref{${1}}$0
+endsnippet
+
+snippet ccref "\Cref{.}" w
+\Cref{${1}}$0
+endsnippet
+
+###########
+## Draft ##
+###########
+
+snippet draft "ifdraf  ..." i
+\ifdraft{{\color{blue}${1:CASE DRAFT}}}{} $0
+endsnippet
+
+snippet drafte "ifdraf ... else ..." i
+\ifdraft{{\color{blue}${1:CASE DRAFT}}}{${2:CASE NOT DRAFT}} $0
+endsnippet
+
+snippet draftintro "Draft intro sentence" i
+\ifdraft{{\color{blue}This document is a draft. All text in blue will not appear in the final version of this document.}}{} 
+endsnippet
+
+################
+## Structures ##
+################
+
+# Personnal note
+snippet pnote "Personal note structure" b
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper, total={18cm, 25cm}]{geometry}
+
+\usepackage{currfile}
+
+\usepackage[round]{natbib}
+\bibliographystyle{abbrvnat}
+
+\usepackage{$HOME/Documents/research/other/latex/myLatexStyle/myLatexStylePersonalNotes/myStyle}
+
+\title{${1:title}}
+\author{${2:Julien Vaes}}
+\date{\monthyeardate\today}
+
+\begin{document}
+
+%\linenumbers
+
+\maketitle
+$0
+
+\end{document}
+endsnippet
+
+# Article
+snippet article "Article structure" b
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper, total={18cm, 25cm}]{geometry}
+
+\usepackage{currfile}
+
+\usepackage[round]{natbib}
+\bibliographystyle{abbrvnat}
+
+\usepackage{$HOME/Documents/research/other/latex/myLatexStyle/myLatexStyleArticle/myStyle}
+
+\title{${1:title}}
+\author{${2:Julien Vaes}}
+\date{\monthyeardate\today}
+
+\begin{document}
+
+%\linenumbers
+
+\maketitle
+$0
+
+\end{document}
+endsnippet
+
+#############
+## Paper 4 ##
+#############
+
+# D0
+snippet d0 "D0" w
+\dZero
+endsnippet
+
+# v1
+snippet v1 "v1" w
+\vOne
+endsnippet
+
+# v2
+snippet v2 "v2" w
+\vTwo
+endsnippet
+
+# c1
+snippet c1 "c1" w
+\cOne
+endsnippet
+
+# m1
+snippet m1 "m1" w
+\mOne
+endsnippet
+
+# m2
+snippet m2 "m2" w
+\mTwo
+endsnippet
+
+# T3
+snippet t3 "T3" w
+\tThree
+endsnippet
+
+# T3 otimes zeta
+snippet tze "T3 x zeta" w
+\tze
+endsnippet
+
+# T3 otimes zetab
+snippet tzeb "T3 x zeb" w
+\tzeb
+endsnippet
+
+# T3 otimes z
+snippet tz "T3 x z" w
+\tz
+endsnippet
+
+# T3 otimes zb
+snippet tzb "T3 x zb" w
+\tzb
+endsnippet
+
+# T3(b)
+snippet t3b "T3(b)" w
+\tThreeBeta
+endsnippet
+
+# D4
+snippet d4 "D4" w
+\dFour
+endsnippet
+
+# y,beta
+snippet yb "y,beta" w
+\ybeta
+endsnippet
+
+# y*,beta*
+snippet ybo "y*,beta*" w
+\ybetao
+endsnippet
+
+# (y,beta)
+snippet pyb "(y,beta)" w
+\pybeta
+endsnippet
+
+# (y*,beta*)
+snippet pybo "(y*,beta*)" w
+\pybetao
+endsnippet
+
+snippet ze "zeta^e" w
+\zetabe
+endsnippet
+
+snippet cvare "VarE[. | ]" w
+\cvare{${1}}{${2:condition}}${0}
+endsnippet
+
+snippet cvarej "VarE_j[. | ]" w
+\cvarej{${1}}{${2:condition}}${0}
+endsnippet
