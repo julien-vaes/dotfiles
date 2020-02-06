@@ -6,20 +6,24 @@ autocmd InsertLeave * write
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'tpope/vim-sensible'
-Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/fzf.vim'
-Plug 'neomake/neomake'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'vim-scripts/ctrlp.vim'
-Plug 'preservim/nerdtree'
-Plug 'preservim/nerdcommenter'
-Plug 'lervag/vimtex'
-Plug 'JuliaEditorSupport/julia-vim'
-Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'frazrepo/vim-rainbow'
+Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'justinmk/vim-dirvish'
+Plug 'lervag/vimtex'
+Plug 'neomake/neomake'
+Plug 'preservim/nerdtree'
+Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
+Plug 'urbainvaes/fzf-marks'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/ctrlp.vim'
+Plug 'wokalski/autocomplete-flow'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do' : ':UpdateRemotePlugins' }
