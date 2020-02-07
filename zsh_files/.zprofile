@@ -1,7 +1,8 @@
 alias j='/Applications/Julia-1.3.app/Contents/Resources/julia/bin/julia'
 alias ju='jupyter notebook'
-alias v='vim'
-alias n='nvim'
+alias v='nvim'
+alias p='python'
+alias p3='python3'
 
 # Setting PATH for Python 3.8
 # The original version is saved in .zprofile.pysave
