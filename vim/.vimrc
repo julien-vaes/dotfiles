@@ -2,8 +2,6 @@
 set clipboard=unnamed
 autocmd InsertLeave * write
 
-" Avoid problem in crontab 
-
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
@@ -46,8 +44,10 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsEditSplit="horizontal"
 
 " Trigger to move from one field to the other
-let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsEditSplit="horizontal"
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-l>"
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mySnippets']
 let g:UltiSnipsSnippetsDir="~/.vim/mySnippets"
