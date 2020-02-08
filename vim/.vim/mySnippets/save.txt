@@ -1,0 +1,11 @@
+snippet err "create the structure for an error message" b
+@error(
+	string(
+		"\n ${1:Module Name} ${2:101}:\n",
+		"${3:Error Text}",
+		${4:Error Variable},
+		"."
+		)
+	)
+	$0
+endsnippet

@@ -16,10 +16,7 @@ def camelToSnake(s):
 # General functions
 
 # returns the file name
-def get_file_name(snip):
-	return snip.fn
-
-# splits a string with , and returns a table
+def get_file_name(snip): return snip.fn # splits a string with , and returns a table
 def get_args(arglist):
 	args = arglist.split(',')
 	for i in range(0,len(args)):
@@ -161,7 +158,6 @@ if snip.indent:
 	${5:${VISUAL:nothing}}
 end
 
-
 endsnippet
 
 snippet stru "Structure with documentation" b
@@ -175,7 +171,6 @@ write_structure_attributes_doc(t, snip) `
 end
 
 ### END: STRUCTURE $1 ###
-
 
 endsnippet
 
@@ -194,7 +189,6 @@ end
 `!p write_get_functions(t, snip) `
 ### END: STRUCTURE $1 ###
 
-
 endsnippet
 
 snippet strugs "Structure with documentation and (get,set) functions" b
@@ -210,6 +204,5 @@ end
 `!p write_get_functions(t, snip) `
 `!p write_set_functions(t, snip) `
 ### END: STRUCTURE $1 ###
-
 
 endsnippet

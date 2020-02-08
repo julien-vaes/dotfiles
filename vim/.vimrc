@@ -2,6 +2,8 @@
 set clipboard=unnamed
 autocmd InsertLeave * write
 
+" Avoid problem in crontab 
+
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
