@@ -206,3 +206,39 @@ end
 ### END: STRUCTURE $1 ###
 
 endsnippet
+
+snippet err "create the structure for an error message" b
+@error(
+	string(
+		"\n${1:Module Name} ${2:101}:\n",
+		"${3:Error Text}",
+		${4:Error Variable},
+		"."
+		)
+	)
+	$0
+endsnippet
+
+snippet war "create the structure for a warning message" b
+@error(
+	string(
+		"\n${1:Module Name} ${2:101}:\n",
+		"${3:Warning Text}",
+		${4:Warning Variable},
+		"."
+		)
+	)
+	$0
+endsnippet
+
+snippet inf "create the structure for an info message" b
+@error(
+	string(
+		"\n${1:Module Name} ${2:101}:\n",
+		"${3:Info Text}",
+		${4:Info Variable},
+		"."
+		)
+	)
+	$0
+endsnippet

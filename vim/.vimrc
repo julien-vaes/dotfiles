@@ -1,6 +1,8 @@
 " Enable copy paste outside vim 
 set clipboard=unnamed
-autocmd InsertLeave * write
+
+" Automatically save when exiting insert mode 
+" autocmd InsertLeave * write
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
@@ -65,3 +67,6 @@ let g:rainbow_active = 1
 
 " Other
 set foldmethod=indent
+
+" Enable spell check
+set spell spelllang=en_gb
