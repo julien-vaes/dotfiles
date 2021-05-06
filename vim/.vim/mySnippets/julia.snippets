@@ -34,8 +34,9 @@ def get_args(arglist):
 
 		tabifsep = myLocalArg.split(';')
 		if len(tabifsep) > 1:
-			myCurrentArg += tabifsep[0]
-			args += [myCurrentArg]
+			if len(tabifsep[0]) > 0:
+				myCurrentArg += tabifsep[0]
+				args += [myCurrentArg]
 			myCurrentArg = ";" + tabifsep[1]
 		else:
 			myCurrentArg += myLocalArg
@@ -94,7 +95,7 @@ def write_function_arguments_doc(t,snip):
 		snip += "### Argument%s" % myS
 		for arg in args:
 			arg = arg.replace(';','')
-			tablocal = arg.slit('=')
+			tablocal = arg.split('=')
 			snip += function_argument_format(tablocal[0])
 	snip += '"""'
 
