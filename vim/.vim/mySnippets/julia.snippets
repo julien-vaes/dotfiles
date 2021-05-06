@@ -94,7 +94,8 @@ def write_function_arguments_doc(t,snip):
 		snip += "### Argument%s" % myS
 		for arg in args:
 			arg = arg.replace(';','')
-			snip += function_argument_format(arg)
+			tablocal = arg.slit('=')
+			snip += function_argument_format(tablocal[0])
 	snip += '"""'
 
 # Function to describe a structure with a snippet
