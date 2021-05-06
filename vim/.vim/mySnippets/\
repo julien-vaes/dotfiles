@@ -6,26 +6,6 @@ snippet todo "[1,...,.]" w
 \todo{${1}}${0}
 endsnippet
 
-snippet ni "noindent" w
-\noindent${0}
-endsnippet
-
-snippet nn "nonumber" w
-\nonumber${0}
-endsnippet
-
-snippet comb "[1,...,.]" w
-\comb{${1}}${0}
-endsnippet
-
-snippet comg "[1,...,.]" w
-\comg{${1}}${0}
-endsnippet
-
-snippet comm "[1,...,.]" w
-\comm{${1}}${0}
-endsnippet
-
 # in line math
 snippet mm "$...$" i
 $${1}$${0}
@@ -39,11 +19,6 @@ endsnippet
 # underscore
 snippet uu "_{...}" i
 _{${1}}${0}
-endsnippet
-
-# underscore
-snippet int "int_{...}^{...}" w
-\int_{${1}}^{${2}}${0}
 endsnippet
 
 # exponent
@@ -61,33 +36,12 @@ snippet colp "\colorbox{pink}{...}" w
 \colorbox{pink}{${1}}${0}
 endsnippet
 
-# nonumber
-snippet nn "\nonumber" w
-\nonumber \\${0}
-endsnippet
-
 ####################
 ## Math operators ##
 ####################
 
-snippet frac "{..}/{..}" i
-\frac{${1:1}}{${2:den}}${0}
-endsnippet
-
-snippet mini "min(.,.)" i
-\minimum{${1}}{${2}}${0}
-endsnippet
-
-snippet maxi "max(.,.)" i
-\maximum{${1}}{${2}}${0}
-endsnippet
-
 snippet sum "sum_{..}^.." w
 \sum_{${1:i=1}}^{${2:n}}${0}
-endsnippet
-
-snippet underb "underbrace{..}_{..}" w
-\underbrace{${1}}_{${2}}${0}
 endsnippet
 
 # Transpose
@@ -149,16 +103,6 @@ snippet rmdef "\rmdef" w
 \rmdef${0}
 endsnippet
 
-# balls
-snippet oball "B(.;.)" w
-\oball{${1:x}}{${2:\epsilon}}${0}
-endsnippet
-
-snippet cball "B[.;.]" w
-\cball{${1:x}}{${2:\epsilon}}${0}
-endsnippet
-
-
 ############
 ## Vector ##
 ############
@@ -218,11 +162,6 @@ snippet setc "{.|.}" w
 \setc{${1}}{${2}}${0}
 endsnippet
 
-# Argument condition
-snippet argc "{.|.}" w
-\argc{${1}}{${2}}${0}
-endsnippet
-
 ###########
 ## Norms ##
 ###########
@@ -277,8 +216,8 @@ snippet cexpe "E[.|.]" w
 endsnippet
 
 # Conditional expectation with specified probability measure
-snippet cexpem "E^{.}[.|.]" w
-\cexpem{${1:measure}}{${2}}{${3:condition}}${0}
+snippet cexpe "E[.|.]" w
+\cexpe{${1}}{${2:condition}}${0}
 endsnippet
 
 # VaR
@@ -316,48 +255,18 @@ endsnippet
 #################
 
 # ()
-snippet pa "(.)" w
+snippet pa "(.)" i
 \pa{${1}}${0}
 endsnippet
 
 # []
-snippet pac "[.]" w
+snippet pac "[.]" i
 \pac{${1}}${0}
 endsnippet
 
 # {}
-snippet pab "{.}" w
+snippet pab "{.}" i
 \pab{${1}}${0}
-endsnippet
-
-# ][
-snippet paoo "].[" w
-\paoo{${1}}${0}
-endsnippet
-
-# ]]
-snippet paoc "].]" w
-\paoc{${1}}${0}
-endsnippet
-
-# [[
-snippet paco "[.[" w
-\paco{${1}}${0}
-endsnippet
-
-# ()
-snippet spa "(.)" w
-\spa{${1}}${0}
-endsnippet
-
-# []
-snippet spac "[.]" w
-\spac{${1}}${0}
-endsnippet
-
-# {}
-snippet spab "{.}" w
-\spab{${1}}${0}
 endsnippet
 
 ###########
@@ -380,12 +289,8 @@ snippet matb "\matb{.}" i
 \matb{${1}}${0}
 endsnippet
 
-snippet mset "\mset{.}" w
+snippet mset "\mset{.}" i
 \mset{${1}}${0}
-endsnippet
-
-snippet tmset "\mset{.}" w
-\tmset{${1}}${0}
 endsnippet
 
 ####################
@@ -429,75 +334,75 @@ endsnippet
 ##########################
 
 snippet prop "proposition" b
-\begin{proposition}[$1]%
+\begin{proposition}[$1]
 $2
 \end{proposition}
 $0
 endsnippet
 
 snippet propl "proposition labeled" b
-\begin{proposition}[$1]%
-\label{prop:${2:$1}}%
+\begin{proposition}[$1]
+\label{prop:${2:$1}}
 $3
 \end{proposition}
 $0
 endsnippet
 
 snippet theo "theorem" b
-\begin{theorem}[$1]%
+\begin{theorem}[$1]
 $2
 \end{theorem}
 $0
 endsnippet
 
 snippet theol "theorem labeled" b
-\begin{theorem}[$1]%
-\label{theorem:${2:$1}}%
+\begin{theorem}[$1]
+\label{theorem:${2:$1}}
 $3
 \end{theorem}
 $0
 endsnippet
 
 snippet cor "corollary" b
-\begin{corollary}[$1]%
+\begin{corollary}[$1]
 $2
 \end{corollary}
 $0
 endsnippet
 
 snippet corl "corollary labeled" b
-\begin{corollary}[$1]%
-\label{corollary:${2:$1}}%
+\begin{corollary}[$1]
+\label{corollary:${2:$1}}
 $3
 \end{corollary}
 $0
 endsnippet
 
 snippet rem "remark" b
-\begin{remark}[$1]%
+\begin{remark}[$1]
 $2
 \end{remark}
 $0
 endsnippet
 
 snippet reml "remark labeled" b
-\begin{remark}[$1]%
-\label{remark:${2:$1}}%
+\begin{remark}[$1]
+\label{remark:${2:$1}}
 $3
 \end{remark}
 $0
 endsnippet
 
 snippet lem "lemma" b
-\begin{lemma}[$1]%
+\begin{lemma}[$1]
 $2
 \end{lemma}
 $0
 endsnippet
 
 snippet leml "lemma labeled" b
-\begin{lemma}[$1]%
-\label{lemma:${2:$1}}%
+\begin{lemma}[$1]
+\label{lemma:${2:$1}}
 $3
 \end{lemma}
 $0
@@ -511,15 +416,15 @@ $0
 endsnippet
 
 snippet def "definition" b
-\begin{definition}%
+\begin{definition}
 $1
 \end{definition}
 $0
 endsnippet
 
 snippet defl "definition labeled" b
-\begin{definition}[$1]%
-\label{def:${2:$1}}%
+\begin{definition}[$1]
+\label{def:${2:$1}}
 $3
 \end{definition}
 $0
@@ -536,7 +441,8 @@ snippet min "minimum optimmisation problem" w
   {\label{op:${1:label}_problem}}
   {${7}}
   \addConstraint{${5}}{${6}. \label{eq:$1_constraint}}
-\end{mini!}
+\end{mini!}%
+\vspace{-5mm}
 endsnippet
 
 snippet max "maximum optimmisation problem" w
@@ -546,7 +452,8 @@ snippet max "maximum optimmisation problem" w
   {\label{op:${1:label}_problem}}
   {${7}}
   \addConstraint{${5}}{${6}. \label{eq:$1_constraint}}
-\end{maxi!}
+\end{maxi!}%
+\vspace{-5mm}
 endsnippet
 
 ############################
@@ -571,10 +478,6 @@ endsnippet
 
 snippet ccref "\Cref{.}" w
 \Cref{${1}}$0
-endsnippet
-
-snippet eqr "\Cref{.}" w
-\eqref{${1}}$0
 endsnippet
 
 ###########
@@ -718,6 +621,30 @@ snippet d4 "D4" w
 \dFour
 endsnippet
 
+# y,beta
+snippet yb "y,beta" w
+\ybeta
+endsnippet
+
+# y*,beta*
+snippet ybo "y*,beta*" w
+\ybetao
+endsnippet
+
+# (y,beta)
+snippet pyb "(y,beta)" w
+\pybeta
+endsnippet
+
+# (y*,beta*)
+snippet pybo "(y*,beta*)" w
+\pybetao
+endsnippet
+
+snippet ze "zeta^e" w
+\zetabe
+endsnippet
+
 snippet cvare "VarE[. | ]" w
 \cvare{${1}}{${2:condition}}${0}
 endsnippet
@@ -725,6 +652,8 @@ endsnippet
 snippet cvarej "VarE_j[. | ]" w
 \cvarej{${1}}{${2:condition}}${0}
 endsnippet
+
+
 
 snippet in "in" w
 \in
