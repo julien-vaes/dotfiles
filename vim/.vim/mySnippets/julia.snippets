@@ -28,11 +28,18 @@ def get_args(arglist):
 		if myCurrentArg != "":
 			myCurrentArg += ','
 		myLocalArg = argssepcomma[i]
-		myLocalArg = myLocalArg.replace(';','')
 		myLocalArg = myLocalArg.replace('\n','')
 		myLocalArg = myLocalArg.replace('\t','')
 		myLocalArg = myLocalArg.replace(' ','')
-		myCurrentArg += myLocalArg
+
+		tabifsep = myLocalArg.split(';')
+		if len(tabifsep) > 1:
+			myCurrentArg += tabifsep[0]
+			args += [myCurrentArg]
+			myCurrentArg = ";" + tabifsep[1]
+		else:
+			myCurrentArg += myLocalArg
+
 		myNOpenings = 0
 		myNClosings = 0
 		for letter in myCurrentArg:
@@ -55,11 +62,13 @@ def get_string_args_from_tab(aTab):
 	i = 0
 	for aArg in aTab:
 		if i > 0:
-			myString += ","
-		myString += "\n"
-		myString += aArg
+			if ';' in aArg:
+				myString += ";"
+			else:
+				myString += ","
+			myString += "\n"
+		myString += aArg.replace(';','')
 		i += 1
-	myString += "\n"
 	return myString
 
 # Function to describe the function with a snippet
@@ -67,7 +76,7 @@ def get_string_args_from_tab(aTab):
 def write_function_start_doc(t,snip):
 	snip += '"""'
 	snip += '```'
-	snip += "%s(%s)" % (t[1],get_string_args_from_tab(get_args(t[2])))
+	snip += "%s(\n%s\n)" % (t[1],get_string_args_from_tab(get_args(t[2])))
 	snip += '```'
 	snip.rv += '\n' + snip.mkline('', indent='')
 
@@ -84,6 +93,7 @@ def write_function_arguments_doc(t,snip):
 		# Argument definition
 		snip += "### Argument%s" % myS
 		for arg in args:
+			arg = arg.replace(';','')
 			snip += function_argument_format(arg)
 	snip += '"""'
 
@@ -183,7 +193,6 @@ def get_function_name_and_arguments(aString):
     myLocalString = myLocalString.replace('\n','')
     myLocalString = myLocalString.replace('\t','')
     myLocalString = myLocalString.replace(')','')
-    myLocalString = myLocalString.replace(';','')
     myLocalString = myLocalString.replace('function','')
     myTab = myLocalString.split('(')
 
