@@ -34,9 +34,8 @@ def get_args(arglist):
 
 		tabifsep = myLocalArg.split(';')
 		if len(tabifsep) > 1:
-			if len(tabifsep[0]) > 0:
-				myCurrentArg += tabifsep[0]
-				args += [myCurrentArg]
+			myCurrentArg += tabifsep[0]
+			args += [myCurrentArg]
 			myCurrentArg = ";" + tabifsep[1]
 		else:
 			myCurrentArg += myLocalArg
@@ -96,7 +95,9 @@ def write_function_arguments_doc(t,snip):
 		for arg in args:
 			arg = arg.replace(';','')
 			tablocal = arg.split('=')
-			snip += function_argument_format(tablocal[0])
+			myargtoset = tablocal[0]
+			if len(myargtoset) > 0:
+				snip += function_argument_format(myargtoset)
 	snip += '"""'
 
 # Function to describe a structure with a snippet
