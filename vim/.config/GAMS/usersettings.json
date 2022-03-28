@@ -1,0 +1,67 @@
+{
+    "base": {
+        "autosaveOnRun": true,
+        "defaultWorkspace": "/Users/jvaes/Documents/GAMS/Studio/workspace",
+        "editor": {
+            "TabSize": 4,
+            "appearance": 1,
+            "autoCloseBraces": true,
+            "autoIndent": true,
+            "clearLog": false,
+            "completerAutoShow": true,
+            "completerCasing": 0,
+            "editableMaxSizeMB": 50,
+            "foldedDcoOnOpen": false,
+            "fontFamily": "Menlo",
+            "fontSize": 10,
+            "highlightCurrentLine": false,
+            "lineWrapEditor": false,
+            "lineWrapProcess": false,
+            "logBackupCount": 3,
+            "showLineNr": true,
+            "smartTooltipHelp": true,
+            "wordUnderCursor": false,
+            "writeLog": true
+        },
+        "engine": {
+            "authExpire": 10080,
+            "storeUserToken": false
+        },
+        "foregroundOnDemand": true,
+        "historySize": 20,
+        "jumpToErrors": true,
+        "miro": {
+            "installationLocation": ""
+        },
+        "misc": {
+            "autoReloadTypes": true,
+            "userFileTypes": ""
+        },
+        "neos": {
+            "acceptTerms": false,
+            "autoConfirm": false,
+            "priotity": true
+        },
+        "openInCurrent": false,
+        "openLst": false,
+        "restoreTabs": true,
+        "skipWelcome": false,
+        "solverOption": {
+            "addCommentAbove": false,
+            "addEOLComment": false,
+            "deleteCommentsAbove": false,
+            "overrideExisting": true
+        },
+        "userModelLibraryDir": "/Users/jvaes/Documents/GAMS/modellibs",
+        "version": {
+            "gamsstudio": "1.5.4.0",
+            "usersettings": 2
+        }
+    },
+    "v2": {
+        "version": {
+            "gamsstudio": "1.5.4.0",
+            "usersettings": 2
+        }
+    }
+}

@@ -154,7 +154,7 @@ def write_get_function(aStructureName, aAttribute, snip):
 	t = ["", myName, myArgument]
 
 	write_function_start_doc(t,snip)
-	snip += "returns the attribute `%s` of the structure `a%s`.\n" % (myAttributeBasic, aStructureName)
+	snip += "Returns the attribute `%s` of the structure `a%s`.\n" % (myAttributeBasic, aStructureName)
 	write_function_arguments_doc(t,snip)
 
 	snip += "function %s(%s)" % (myName,myArgument)

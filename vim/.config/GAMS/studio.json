@@ -1,0 +1,110 @@
+{
+    "base": {
+        "defaultCodecMib": 106,
+        "encodingMIBs": "106,4,17,2025",
+        "engine": {
+            "forceGdx": true,
+            "isSelfCert": false,
+            "namespace": "",
+            "page": "",
+            "user": "",
+            "userInstance": "",
+            "userToken": ""
+        },
+        "help": {
+            "bookmarks": [
+            ],
+            "zoom": 1
+        },
+        "history": [
+            {
+                "file": "/Users/jvaes/Documents/postdoc/implementation/Hector/CapExpansionRH.lst"
+            },
+            {
+                "file": "/Users/jvaes/Documents/postdoc/implementation/Hector/CapExpansionRH.gms"
+            },
+            {
+                "file": "/Users/jvaes/Desktop/new1.lst"
+            },
+            {
+                "file": "/Users/jvaes/Desktop/new1.gms"
+            },
+            {
+                "file": "/Users/jvaes/Documents/postdoc/implementation/ophelia_julia/CapExpansionRH.lst"
+            },
+            {
+                "file": "/Users/jvaes/Documents/postdoc/implementation/ophelia_julia/CapExpansionRH.gms"
+            }
+        ],
+        "neos": {
+            "forceGdx": true
+        },
+        "projects": [
+            {
+                "file": "/Users/jvaes/Documents/postdoc/implementation/Hector/CapExpansionRH.gms",
+                "name": "CapExpansionRH",
+                "nodes": [
+                    {
+                        "codecMib": 106,
+                        "file": "/Users/jvaes/Documents/postdoc/implementation/Hector/CapExpansionRH.gms",
+                        "name": "CapExpansionRH.gms",
+                        "type": "gms"
+                    },
+                    {
+                        "codecMib": 106,
+                        "file": "/Users/jvaes/Documents/postdoc/implementation/Hector/CapExpansionRH.lst",
+                        "name": "CapExpansionRH.lst",
+                        "type": "lst"
+                    }
+                ],
+                "options": [
+                    ""
+                ],
+                "path": "/Users/jvaes/Documents/postdoc/implementation/Hector"
+            }
+        ],
+        "search": {
+            "caseSens": false,
+            "regex": false,
+            "scope": 0,
+            "wholeWords": false
+        },
+        "tabs": {
+            "mainTabRecent": "/Users/jvaes/Documents/postdoc/implementation/Hector/CapExpansionRH.lst",
+            "mainTabs": [
+                {
+                    "location": "/Users/jvaes/Documents/postdoc/implementation/Hector/CapExpansionRH.gms"
+                },
+                {
+                    "location": "/Users/jvaes/Documents/postdoc/implementation/Hector/CapExpansionRH.lst"
+                }
+            ]
+        },
+        "userModelLibraryDir": "/Users/jvaes/Documents/GAMS/modellibs",
+        "version": {
+            "gamsstudio": "1.5.4.0",
+            "studiosettings": 1
+        },
+        "viewMenu": {
+            "help": false,
+            "optionEdit": false,
+            "output": false,
+            "project": true
+        },
+        "window": {
+            "_maxSizes": "253,613,-1,-1",
+            "_normSizes": "253,624,-1,-1",
+            "fullScreen": true,
+            "maximized": false,
+            "pos": "294,207",
+            "size": "1279,761",
+            "state": "000000ff00000000fd0000000300000000000000fd00000471fc0200000001fb0000001e0064006f0063006b00500072006f006a00650063007400560069006500770100000024000004710000008400ffffff000000010000026500000471fc0200000002fb0000001c0064006f0063006b00500072006f0063006500730073004c006f00670200000386ffffffbc000002650000045bfb000000180064006f0063006b00480065006c007000560069006500770000000000ffffffff0000003600ffffff000000020000000000000000fc0100000001fb0000001a00670061006d00730041007200670075006d0065006e007400730000000000ffffffff000000a300ffffff000006820000047100000004000000040000000800000008fc0000000100000002000000010000000e0074006f006f006c0042006100720100000000ffffffff0000000000000000"
+        }
+    },
+    "v1": {
+        "version": {
+            "gamsstudio": "1.5.4.0",
+            "studiosettings": 1
+        }
+    }
+}

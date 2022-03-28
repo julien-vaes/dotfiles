@@ -62,11 +62,34 @@ map <C-n> :NERDTreeToggle<CR>
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Rainbow: enables the coloration of the parantheses
-let g:rainbow_active = 1
+" " Rainbow: enables the coloration of the parentheses
+" let g:rainbow_active = 1
 
 " Other
 set foldmethod=indent
 
 " Enable spell check
-set spell spelllang=en_gb
+set spell
+set spelllang=en_gb
+
+" set the wide to 2
+autocmd Filetype tex,latex set shiftwidth=2
+
+" change highlighting colour if: word not recognized
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=red
+" Set style for gVim
+hi SpellBad gui=undercurl
+
+" change highlighting colour if: word not capitalised
+hi clear SpellCap
+hi SpellCap cterm=underline ctermfg=blue
+" Set style for gVim
+hi SpellCap gui=undercurl
+
+" change highlighting colour if: wrong spelling for selected region
+hi clear SpellLocal
+hi SpellLocal ctermfg=green
+" Set style for gVim
+hi SpellLocal gui=undercurl
+
