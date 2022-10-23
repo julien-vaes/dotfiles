@@ -93,3 +93,8 @@ hi SpellLocal ctermfg=green
 " Set style for gVim
 hi SpellLocal gui=undercurl
 
+" delete tex log files
+augroup MyVimtex
+  autocmd!
+  autocmd User VimtexEventQuit call vimtex#latexmk#clean(0)
+augroup END

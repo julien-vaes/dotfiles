@@ -11,6 +11,9 @@ alias py3='python3'
 alias c='conda'
 alias c3='conda'
 alias gams='GAMS'
+alias ga='git add'
+alias gc='git commit -m "'
+alias gp='git push'
 
 # Setting PATH for Python 3.8
 # The original version is saved in .zprofile.pysave
