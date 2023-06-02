@@ -26,6 +26,14 @@ Plug 'urbainvaes/fzf-marks'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ctrlp.vim'
 Plug 'wokalski/autocomplete-flow'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
+
+if has('win32') || has('win64')
+  Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
+else
+  Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+endif
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do' : ':UpdateRemotePlugins' }
@@ -98,3 +106,4 @@ augroup MyVimtex
   autocmd!
   autocmd User VimtexEventQuit call vimtex#latexmk#clean(0)
 augroup END
+
