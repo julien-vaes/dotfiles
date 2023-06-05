@@ -1,40 +1,42 @@
-" Enable copy paste outside vim 
-set clipboard=unnamed
+" Enable Mac clipboard compatibility
+if has('mac') || has('macunix')
+  set clipboard=unnamed
+endif
 
-" Automatically save when exiting insert mode 
-" autocmd InsertLeave * write
-
-" Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'airblade/vim-gitgutter'
+Plug 'easymotion/vim-easymotion'
 Plug 'frazrepo/vim-rainbow'
 Plug 'honza/vim-snippets'
+Plug 'JuliaEditorSupport/julia-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/seoul256.vim'
-Plug 'JuliaEditorSupport/julia-vim'
 Plug 'justinmk/vim-dirvish'
+Plug 'kien/ctrlp.vim'
 Plug 'lervag/vimtex'
+Plug 'mhinz/vim-startify'
+Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neomake/neomake'
 Plug 'preservim/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'SirVer/ultisnips'
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
 Plug 'urbainvaes/fzf-marks'
+Plug 'Valloric/YouCompleteMe'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/ctrlp.vim'
-Plug 'wokalski/autocomplete-flow'
+Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 
-if has("nvim")
-    Plug 'Shougo/deoplete.nvim', { 'do' : ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
-else
-    Plug 'Shougo/neocomplete.vim'
-endif
-
-" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " Ultisnips
@@ -98,3 +100,4 @@ augroup MyVimtex
   autocmd!
   autocmd User VimtexEventQuit call vimtex#latexmk#clean(0)
 augroup END
+
