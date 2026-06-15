@@ -41,6 +41,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'universal-ctags/ctags' 
 Plug 'urbainvaes/fzf-marks'
+Plug 'Valloric/YouCompleteMe'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/ctrlp.vim'
@@ -61,6 +62,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-media-files.nvim'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -139,7 +141,6 @@ augroup MyVimtex
   autocmd!
   autocmd User VimtexEventQuit call vimtex#latexmk#clean(0)
 augroup END
-
 
 " Remove all unnecessary tex files after pdf generation
 " Define a function to remove unnecessary LaTeX files
